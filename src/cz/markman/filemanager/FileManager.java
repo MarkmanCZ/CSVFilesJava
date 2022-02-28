@@ -27,13 +27,8 @@ public class FileManager {
 
             try {
                 while ((line = bfreader.readLine()) != null) {
-                    String newLine;
-                    if(line.contains(";")) {
-                         newLine = line.replace(";", "\n");
-                         System.out.println(newLine);
-                    }else {
-                        System.out.println(line);
-                    }
+                    String[] values = line.split(",");
+                    System.out.println("Policy ID: " + values[0] + " State code: " + values[0]);
                 }
                 bfreader.close();
             }catch (IOException ex) {
@@ -51,8 +46,7 @@ public class FileManager {
             bfwriter = new BufferedWriter(flwriter);
 
             try {
-                bfwriter.write("Marek Vicha;Uherske Hradiste;vicha-marek@seznam.cz\n");
-                bfwriter.write("Tomas Novak;Uhersky Brod;sejtam@gmail.com\n");
+                //
 
                 bfwriter.close();
             }catch (IOException ex) {
